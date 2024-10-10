@@ -44,6 +44,8 @@ jobs:
         run: vendor/bin/pest --ci --coverage
 
   release:
+    needs:
+      - tests
     name: Semantic Release
     runs-on: ubuntu-latest
     permissions:
