@@ -8,10 +8,13 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\ValidateBearerToken;
 use App\Url\Http\Controllers\Api\One\CreateShortController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::get('/status', fn () => response()->json(['status' => 'ok']));
-    Route::post('/short-urls', CreateShortController::class)->name('api.short-urls.create');
+    Route::post('/short-urls', CreateShortController::class)
+        ->name('api.short-urls.create')
+        ->middleware([ValidateBearerToken::class]);
 });

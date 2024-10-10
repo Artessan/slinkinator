@@ -29,6 +29,6 @@ class CreateShortController
             return response()->json(['message' => 'Unexpected error occurred', 'errors' => [[$exception->getMessage()]]], 500);
         }
 
-        return response()->json(['url' => sprintf('<%s>', $shortUrl)], options: JSON_UNESCAPED_SLASHES);
+        return response()->json(['url' => sprintf('<%s>', $shortUrl->url)], options: JSON_UNESCAPED_SLASHES);
     }
 }
