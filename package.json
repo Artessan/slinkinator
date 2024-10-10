@@ -1,5 +1,6 @@
 {
     "private": true,
+    "name": "@artessan/slinkinator",
     "type": "module",
     "scripts": {
         "dev": "vite",
